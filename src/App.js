@@ -1,24 +1,56 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react'
+import {BrowserRouter, useHistory, Redirect} from "react-router-dom";
+import {renderRoutes, } from "react-router-config";
+import Context from './pages/context'
+import UseMemo from '@/pages/use-memo'
+import Index from './pages/demo'
+
+const routerList = [
+    {
+        name:'context',
+        path:'/context',
+        component: Context
+    },
+    {
+        name:'demo',
+        path:'/demo',
+        component: Index
+    },
+    {
+        name:'memo',
+        path:'/memo',
+        component: UseMemo
+    }
+]
+const Menu = function (){
+    const history = useHistory()
+    return (
+        <div className='router_style'>
+            {
+                routerList.map(item=>{
+                    return  <div key={item.path} className='router_link'  onClick={
+                        ()=>{
+                            history.push(item.path)
+                        }
+                    }>
+                        {item.name}
+                    </div>
+                })
+            }
+        </div>
+    )
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+        <Menu/>
+        {
+            renderRoutes(routerList)
+        }
+        <Redirect from={'/'} to={'/demo'} />
+    </BrowserRouter>
   );
 }
 
