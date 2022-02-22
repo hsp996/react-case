@@ -4,7 +4,7 @@ import {BrowserRouter, useHistory, Redirect} from "react-router-dom";
 import {renderRoutes, } from "react-router-config";
 import Context from './pages/context'
 import UseMemo from '@/pages/use-memo'
-import Index from './pages/demo'
+import Index from './pages/Scroll'
 
 const routerList = [
     {
