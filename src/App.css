@@ -41,4 +41,5 @@
 }
 .router_link{
   margin-right: 30px;
+  cursor: pointer;
 }

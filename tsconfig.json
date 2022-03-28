@@ -20,12 +20,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "strictNullChecks": false,
-    "baseUrl": "src",
-    "paths": {
-      "@/*": [
-        "./*"
-      ]
-    }
+    "baseUrl": "src"
   },
   "include": [
     "src",

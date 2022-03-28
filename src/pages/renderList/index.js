@@ -61,6 +61,7 @@ class Index extends React.Component{
         this.setState({
             renderList
         })
+        /* 用 requestIdleCallback 代替 setTimeout 浏览器空闲执行下一批渲染 */
         requestIdleCallback(()=>{
             this.toRenderList(++index,times)
         })

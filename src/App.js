@@ -2,15 +2,15 @@ import './App.css';
 import React from 'react'
 import {BrowserRouter, useHistory, Redirect} from "react-router-dom";
 import {renderRoutes, } from "react-router-config";
-import Context from './pages/context'
-import UseMemo from '@/pages/use-memo'
-import Index from './pages/Scroll'
-
+import HOC from './pages/hoc/index2'
+import UseMemo from '@/pages/useMemo'
+import Index from './pages/demo'
+import RenderList  from '@/pages/virtualList'
 const routerList = [
     {
         name:'context',
         path:'/context',
-        component: Context
+        component: RenderList
     },
     {
         name:'demo',
@@ -49,7 +49,7 @@ function App() {
         {
             renderRoutes(routerList)
         }
-        <Redirect from={'/'} to={'/demo'} />
+        <Redirect from={'/'} to={'/context'} />
     </BrowserRouter>
   );
 }
