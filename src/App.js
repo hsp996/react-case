@@ -1,11 +1,11 @@
 import './App.css';
 import React from 'react'
 import {BrowserRouter, useHistory, Redirect} from "react-router-dom";
-import {renderRoutes, } from "react-router-config";
+import {renderRoutes } from "react-router-config";
 import HOC from './pages/hoc/index2'
 import UseMemo from '@/pages/useMemo'
 import Index from './pages/demo'
-import RenderList  from '@/pages/virtualList'
+import RenderList  from '@/pages/renderList'
 const routerList = [
     {
         name:'context',

@@ -1,7 +1,7 @@
 import  React,{useEffect,useRef,useState} from 'react'
 import style from './index.module.css'
 
-function VirtualList() {
+const VirtualList=()=> {
     const [dataList, setDataList] = useState([])
     const box = useRef(null)
     const content = useRef(null)
@@ -13,7 +13,7 @@ function VirtualList() {
         renderCount:null // 渲染区个数
     })
     useEffect(()=>{
-        const height = box.current.offsetHeight
+        const height = box.current?.offsetHeight
         const {itemHeight,bufferCount} = scrollInfo.current
         const renderCount = Math.ceil( height / itemHeight) + bufferCount
         scrollInfo.current = {height,itemHeight,bufferCount,renderCount}
@@ -29,20 +29,17 @@ function VirtualList() {
         const start = Math.floor(scrollTop / itemHeight)
         const end = Math.floor(scrollTop / itemHeight + renderCount + 1)
         if (position[0] !== start || position[1] !== end){
-            setPosition([start,end])
+            // setPosition([start,end])
         }
     }
     const [start,end] = position
     const renderList = dataList.slice(start,end)
-    const {itemHeight} = scrollInfo.current
     return (
         <div className={style.list_box} ref={box} onScroll={handleScroll}>
-            <div style={{height:`${itemHeight * dataList.length}px`}}>
-                <div ref={content} >
-                    {
-                        renderList.map((item,index)=><div key={index} className={style.list_item}>item {item}</div>)
-                    }
-                </div>
+            <div ref={content} >
+                {
+                    renderList.map((item,index)=><div key={index} className={style.list_item}>item {item}</div>)
+                }
             </div>
         </div>
     )

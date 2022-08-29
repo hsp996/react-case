@@ -23,6 +23,6 @@ export default function Router(props){
         history, // 保存了改变路由的方法和监听路由的方法
         match:{path:'/',url:'/',params:{}} // 证明当前路由的匹配信息的对象
     }}>
-
+        {props.children}
     </RouterContext.Provider>
 }

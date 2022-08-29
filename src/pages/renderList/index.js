@@ -62,9 +62,9 @@ class Index extends React.Component{
             renderList
         })
         /* 用 requestIdleCallback 代替 setTimeout 浏览器空闲执行下一批渲染 */
-        requestIdleCallback(()=>{
+        setTimeout(()=>{
             this.toRenderList(++index,times)
-        })
+        },0)
     }
     renderNewList=(index)=>{
         const {dataList,eachRenderNum,position} = this.state
@@ -97,6 +97,7 @@ export default ()=>{
     }
     return (
         <div>
+            <button>setState</button>
             {
                 btnShow && <button type="submit" onClick={handleClick}>显示</button>
             }
