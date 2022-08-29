@@ -29,6 +29,8 @@ function SetCir(props){
     )
 }
 
+//渲染优化
+
 class Index extends React.Component{
     box = React.createRef(null)
     state={

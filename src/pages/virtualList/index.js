@@ -1,6 +1,7 @@
 import  React,{useEffect,useRef,useState} from 'react'
 import style from './index.module.css'
 
+// 虚拟滚动
 const VirtualList=()=> {
     const [dataList, setDataList] = useState([])
     const box = useRef(null)
