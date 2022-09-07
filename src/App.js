@@ -2,10 +2,10 @@ import './App.css';
 import React from 'react'
 import {BrowserRouter, useHistory, Redirect} from "react-router-dom";
 import {renderRoutes } from "react-router-config";
-import HOC from './pages/hoc/index2'
 import UseMemo from '@/pages/useMemo'
-import Index from './pages/demo'
+import Demo from './pages/demo'
 import RenderList  from '@/pages/renderList'
+import GreenSock from "./pages/greensock";
 const routerList = [
     {
         name:'context',
@@ -15,12 +15,17 @@ const routerList = [
     {
         name:'demo',
         path:'/demo',
-        component: Index
+        component: Demo
     },
     {
         name:'memo',
         path:'/memo',
         component: UseMemo
+    },
+    {
+        name:'greensock',
+        path:'/greensock',
+        component: GreenSock
     }
 ]
 const Menu = function (){
