@@ -17,7 +17,7 @@ const GreenSock= function (){
                 grid: [gridSize, gridSize],
                 ease: 'power1.inOut',
             }),
-            duration: 0.2,
+            duration: 0.1,
         })
     }
     return <div className={styles.container}>

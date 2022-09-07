@@ -6,9 +6,11 @@ const Demo:React.FC = function () {
     const wrapRef = useRef(null)
     useEffect(()=>{
         (()=>{
-            console.log(1)
             gsap.to(wrapRef.current,{
-                x:200
+                x:200,
+                width:300,
+                delay:gsap.utils.distribute({
+                })
             })
         })()
     },[])
